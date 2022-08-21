@@ -5,15 +5,16 @@ const CustomNav = styled.div`
     display: flex;
     flex-direction: row;
 
-    @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-    
-    font-family: 'Varela Round';
+    font-family: 'Vag world bold';
+    color: #04064f;
     font-weight: bold;
+    box-shadow: 5px 1px 50px rgb(167 167 167 / 50%);
 `
 
 const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 40px;
     width: 100%;
 `
@@ -30,6 +31,16 @@ const LogoBox = styled.div`
     }
 `
 
+const Items = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    .study,.dictionary{
+        cursor: pointer;
+    }
+`
+
 function Nav(){
     return (
         <CustomNav>
@@ -38,14 +49,14 @@ function Nav(){
                     <img src={logo} alt='logo'></img>
                     <span className='logo-text'>LearnIT</span>
                 </LogoBox>
-                <div className='items'>
+                <Items>
                      <div className='study'>
                         <span className="study-text">Study</span>
                     </div>
                     <div className='dictionary'>
                         <span className='dictionary-text'>Dictionary</span>
                     </div>
-                </div>
+                </Items>
             </Wrapper>
         </CustomNav>
     );
