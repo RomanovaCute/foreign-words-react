@@ -26,8 +26,7 @@ const LogoBox = styled.div`
     grid-gap: 10px;
 
     img{
-        width: 10%;
-        border-radius: 16px;
+        width: 7%;
     }
 `
 

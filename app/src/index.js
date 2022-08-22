@@ -23,11 +23,14 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .cards-wrapper{
-      // height: 65vh;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+    }
+
+    li{
+      list-style: none;
     }
 `
 

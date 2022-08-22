@@ -28,7 +28,7 @@ function Card(props){
         <WordBox>
             <h3 className="word">{props.word}</h3>
             <span className="transcript">{props.transcript}</span>
-            <img className="sound" src={props.img}></img>
+            <img className="photo" src={props.img}></img>
         </WordBox>
         <Transcript>
             <div className="translate-box">

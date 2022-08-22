@@ -3,7 +3,6 @@ import logo from '../../images/logo.png'
 
 const FooterBox = styled.div`
     flex-direction: column;
-    margin-top: 20px;
     // position: fixed;
     // bottom: 0;
     // width: 100%;
