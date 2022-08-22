@@ -6,6 +6,7 @@ const ItemsList = styled.ul`
     padding: 0;
     column-gap: 5px;
     font-family: 'Vag world bold';
+    font-size: 20px;
     color: #04064f;
 `
 

@@ -3,11 +3,11 @@ import styled from 'styled-components'
 const InputsList = styled.ul((props) => {
 
     let color = '#f7f5f5'  
-    // let display = 'block';
+    let display = 'block';
 
     if(props.isSelected === 'true'){
         color = '#c3d2eb';
-        // display = 'none';
+        display = 'none';
     }
 
     return `
@@ -39,6 +39,8 @@ const InputsList = styled.ul((props) => {
 	        border-radius: 12px;
 	        height: 46px;
 	        line-height: 46px;
+            font-family: 'Vag world bold';
+            letter-spacing: 1.2px;
 	        font-size: 14px;
 	        font-weight: 600;
 	        text-decoration: none;
@@ -63,6 +65,7 @@ const InputsList = styled.ul((props) => {
 
             .save-btn{
                 background-color: #51c051;
+                display: ${display}
             }
             .edit-btn{
                 background-color: #f89e43;
@@ -72,6 +75,7 @@ const InputsList = styled.ul((props) => {
             }
             .cancel-btn{
                 background-color: #9999FF;
+                display: ${display}
             }
 
         background: ${color}
@@ -82,12 +86,12 @@ const InputsList = styled.ul((props) => {
 
 const ButtonsList = styled.div`
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 50% 50%;
     column-gap: 5px;
 `
 
 const List = props =>{
-    const {color, isSelected} = props;
+    const {color, isSelected, display} = props;
 
     return (
     <div className='list-wrapper'>
@@ -99,8 +103,8 @@ const List = props =>{
                     <input type="text" className='category' placeholder='Enter the category' value={props.tag}/>
                     
                     <ButtonsList>
-                        <button className='edit-btn'>Edit</button>
-                        <button className='delete-btn'>Delete</button>
+                        <button className='edit-btn' display={display}>Edit</button>
+                        <button className='delete-btn' display={display}>Delete</button>
                         <button className='save-btn'>Save</button>
                         <button className='cancel-btn'>Cancel</button>
                     </ButtonsList>
