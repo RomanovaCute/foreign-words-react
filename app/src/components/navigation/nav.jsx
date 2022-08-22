@@ -8,6 +8,7 @@ const CustomNav = styled.div`
     font-family: 'Vag world bold';
     color: #04064f;
     font-weight: bold;
+    font-size: 18px;
     box-shadow: 5px 1px 50px rgb(167 167 167 / 50%);
 `
 

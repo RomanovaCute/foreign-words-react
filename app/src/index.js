@@ -32,6 +32,10 @@ const GlobalStyles = createGlobalStyle`
     li{
       list-style: none;
     }
+
+    .cards-wrapper{
+      margin-bottom: 40px;
+    }
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

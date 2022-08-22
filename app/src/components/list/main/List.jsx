@@ -23,6 +23,11 @@ const InputsList = styled.ul((props) => {
             padding-left: 15px;
             border: none;
             border-radius: 16px;
+
+            &:focus{
+                border: 2px solid #713bc1;
+                outline: none;
+            }
         }
 
         button{
@@ -31,7 +36,7 @@ const InputsList = styled.ul((props) => {
 	        margin: 15px 0 15px 15px;
 	        outline: none;
 	        border: none;
-	        border-radius: 50px;
+	        border-radius: 12px;
 	        height: 46px;
 	        line-height: 46px;
 	        font-size: 14px;
@@ -48,7 +53,8 @@ const InputsList = styled.ul((props) => {
             }
             &:hover {
                 transition: all 0.2s;
-                box-shadow: 0 7px 14px rgb(65 132 144 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+                box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.15);
+                border: 2px solid white;
             }
             &:active {
                 background-color: #808080;
