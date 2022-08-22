@@ -31,7 +31,9 @@ const InputsList = styled.ul((props) => {
         }
 
         button{
-            display: inline-block;	
+            display: flex;
+            justify-content: center;
+            align-items: center;
 	        box-sizing: border-box;
 	        margin: 15px 0 15px 15px;
 	        outline: none;
@@ -64,16 +66,20 @@ const InputsList = styled.ul((props) => {
         }
 
             .save-btn{
+                border: 2px solid green;
                 background-color: #51c051;
                 display: ${display}
             }
             .edit-btn{
+                border: 2px solid #eb6916;
                 background-color: #f89e43;
             }
             .delete-btn{
+                border: 2px solid #a51111;
                 background-color: #ea5959;
             }
             .cancel-btn{
+                border: 2px solid #5408e7;
                 background-color: #9999FF;
                 display: ${display}
             }
