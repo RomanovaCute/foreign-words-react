@@ -45,7 +45,6 @@ const InputsList = styled.ul((props) => {
 	        border: none;
 	        border-radius: 12px;
 	        height: 46px;
-	        line-height: 46px;
             font-family: 'Vag world bold';
             letter-spacing: 1.2px;
 	        font-size: 14px;
@@ -92,8 +91,6 @@ const InputsList = styled.ul((props) => {
             }
     
         background: ${color}
-
-        
     `
 })
 
