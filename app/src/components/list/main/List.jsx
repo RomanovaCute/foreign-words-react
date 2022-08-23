@@ -3,11 +3,16 @@ import styled from 'styled-components'
 const InputsList = styled.ul((props) => {
 
     let color = '#f7f5f5'  
-    let display = 'block';
+    let displayTrue = 'block';
+    let displayFalse = 'block';
 
     if(props.isSelected === 'true'){
         color = '#c3d2eb';
-        display = 'none';
+        displayTrue = 'block';
+        displayFalse = 'none';
+    } else if(props.isSelected === 'false'){
+        displayTrue = 'none';
+        displayFalse ='block';
     }
 
     return `
@@ -68,22 +73,24 @@ const InputsList = styled.ul((props) => {
             .save-btn{
                 border: 2px solid green;
                 background-color: #51c051;
-                display: ${display}
-            }
-            .edit-btn{
-                border: 2px solid #eb6916;
-                background-color: #f89e43;
-            }
-            .delete-btn{
-                border: 2px solid #a51111;
-                background-color: #ea5959;
+                display: ${displayTrue}
             }
             .cancel-btn{
                 border: 2px solid #5408e7;
                 background-color: #9999FF;
-                display: ${display}
+                display: ${displayTrue}
             }
-
+            .edit-btn{
+                border: 2px solid #eb6916;
+                background-color: #f89e43;
+                display: ${displayFalse}
+            }
+            .delete-btn{
+                border: 2px solid #a51111;
+                background-color: #ea5959;
+                display: ${displayFalse}
+            }
+    
         background: ${color}
 
         
@@ -97,7 +104,7 @@ const ButtonsList = styled.div`
 `
 
 const List = props =>{
-    const {color, isSelected, display} = props;
+    const {color, isSelected, displayTrue, displayFalse} = props;
 
     return (
     <div className='list-wrapper'>
@@ -109,10 +116,10 @@ const List = props =>{
                     <input type="text" className='category' placeholder='Enter the category' value={props.tag}/>
                     
                     <ButtonsList>
-                        <button className='edit-btn' display={display}>Edit</button>
-                        <button className='delete-btn' display={display}>Delete</button>
-                        <button className='save-btn'>Save</button>
-                        <button className='cancel-btn'>Cancel</button>
+                        <button className='edit-btn' display={displayTrue}>Edit</button>
+                        <button className='delete-btn' display={displayTrue}>Delete</button>
+                        <button className='save-btn' display={displayFalse}>Save</button>
+                        <button className='cancel-btn' display={displayFalse}>Cancel</button>
                     </ButtonsList>
                 </InputsList>
             </ol>
