@@ -1,19 +1,11 @@
+import React, { useState } from 'react';
 import styled from 'styled-components'
 
 const InputsList = styled.ul((props) => {
 
-    let color = '#f7f5f5'  
+    let color = '#c3d2eb'  
     let displayTrue = 'block';
     let displayFalse = 'block';
-
-    if(props.isSelected === 'true'){
-        color = '#c3d2eb';
-        displayTrue = 'block';
-        displayFalse = 'none';
-    } else if(props.isSelected === 'false'){
-        displayTrue = 'none';
-        displayFalse ='block';
-    }
 
     return `
         display: grid;
@@ -21,7 +13,7 @@ const InputsList = styled.ul((props) => {
         padding: 0;
         column-gap: 5px;
         border-radius: 16px;
-
+        
         input{
             margin: 15px 15px 15px 15px;
             height: 40px;
@@ -33,6 +25,17 @@ const InputsList = styled.ul((props) => {
                 border: 2px solid #713bc1;
                 outline: none;
             }
+        }
+ 
+        .not-edit{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background: white;
+            border-radius: 16px;
+            padding-left: 15px;
+            height: 45px;
+            margin: 15px 15px 15px 15px;
         }
 
         button{
@@ -89,8 +92,6 @@ const InputsList = styled.ul((props) => {
                 background-color: #ea5959;
                 display: ${displayFalse}
             }
-    
-        background: ${color}
     `
 })
 
@@ -101,24 +102,42 @@ const ButtonsList = styled.div`
 `
 
 const List = props =>{
-    const {color, isSelected, displayTrue, displayFalse} = props;
+    const {color, displayTrue, displayFalse} = props;
+    const [isEdit, setEdit] = useState(false);
+
+    const handleClick = () =>{
+        setEdit(isEdit => !isEdit)
+    }
 
     return (
     <div className='list-wrapper'>
             <ol>
-                <InputsList className='inputs' isSelected={isSelected} color={color}>
-                    <input type="text" className='word' placeholder='Enter the word' value={props.word}/>
-                    <input type="text" className='translate' placeholder='Enter the translation' value={props.translate}/>
-                    <input type="text" className='trascription' placeholder='Enter the word' value={props.transcript}/>
-                    <input type="text" className='category' placeholder='Enter the category' value={props.tag}/>
-                    
-                    <ButtonsList>
-                        <button className='edit-btn' display={displayTrue}>Edit</button>
-                        <button className='delete-btn' display={displayTrue}>Delete</button>
-                        <button className='save-btn' display={displayFalse}>Save</button>
-                        <button className='cancel-btn' display={displayFalse}>Cancel</button>
-                    </ButtonsList>
-                </InputsList>
+                    { isEdit &&
+                         <InputsList style={{background: '#c3d2eb'}}>
+                            <input type="text" className='word' placeholder='Enter the word'/>
+                            <input type="text" className='translate' placeholder='Enter the translation'/>
+                            <input type="text" className='trascription' placeholder='Enter the word'/>
+                            <input type="text" className='category' placeholder='Enter the category'/>
+                          
+                            <ButtonsList>
+                                <button className='save-btn' display={displayFalse} onClick={handleClick}>Save</button>
+                                <button className='cancel-btn' display={displayFalse} onClick={handleClick}>Cancel</button>
+                            </ButtonsList>
+                        </InputsList>
+                    }
+                    { !isEdit &&
+                        <InputsList>
+                            <div className='not-edit'>{props.word}</div>
+                            <div className='not-edit'>{props.translate}</div>
+                            <div className='not-edit'>{props.transcript}</div>
+                            <div className='not-edit'>{props.tag}</div>
+                      
+                            <ButtonsList>
+                                <button className='edit-btn' display={displayTrue} onClick={handleClick}>Edit</button>
+                                <button className='delete-btn' display={displayTrue}>Delete</button>
+                            </ButtonsList>
+                       </InputsList>
+                    }
             </ol>
     </div>
     )
