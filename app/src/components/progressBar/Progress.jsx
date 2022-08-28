@@ -1,11 +1,7 @@
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import ProgressBar from "@ramonak/react-progress-bar";
 
-function ContextualExample() {
-    return (
-      <div>
-        <ProgressBar variant="success" now={40} />
-      </div>
-    );
-  }
+const ProgressLine = () => {
+  return <ProgressBar completed={60} />;
+};
   
-  export default ContextualExample;
+  export default ProgressLine;

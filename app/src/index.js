@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 import Vag from './fonts/vag_world_bold.woff'
 import Vag2 from './fonts/vag_world_bold.woff2'
+
 
 const GlobalStyles = createGlobalStyle`
     @font-face{
@@ -13,7 +13,12 @@ const GlobalStyles = createGlobalStyle`
       src: url(${Vag}) format('woff'),
       url(${Vag2}) format('woff2')
     }
-
+    
+    body{
+      margin: 0;
+      font-family: sans-serif;
+    }
+    
     .main{
       background: #f7f5f5;
       display: flex;
@@ -33,6 +38,10 @@ const GlobalStyles = createGlobalStyle`
       list-style: none;
     }
 
+    h1, h2, h3, h4, h5, h6{
+      margin: 0;
+    }
+
     .cards-wrapper{
       margin-bottom: 40px;
     }
@@ -46,7 +55,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
