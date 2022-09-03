@@ -7,7 +7,7 @@ import HeaderList from './components/list/header/ListHeader';
 import List from './components/list/main/List';
 import ProgressLine from './components/progressBar/Progress';
 import Slider from './components/slider/Slider';
-import {words} from './components/wordsStore'
+import {words} from './sources/wordsStore'
 
 
 
