@@ -1,4 +1,3 @@
-import ContextualExample from '../progressBar/Progress'
 import {TitleWrapper, TitleBox} from './styles'
 
 function Title(props){
@@ -7,7 +6,6 @@ function Title(props){
             <TitleBox>
                 <h2 className='title'>{props.title}</h2>
             </TitleBox>
-            <ContextualExample></ContextualExample>
         </TitleWrapper>
     )
 }
