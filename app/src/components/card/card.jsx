@@ -3,11 +3,12 @@ import {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning} fro
 
 
 function Card(props){
-    const {word, transcript, img, translate, engMeaning, ruMeaning} = props
+    const {word, transcript, img, translate, engMeaning, ruMeaning, id, knownWords} = props
     const [flip, setFlip] = useState(true);
 
     const handleClick = () => {
         setFlip(flip => !flip)
+        knownWords(id);
     }
 
 
