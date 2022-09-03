@@ -1,74 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components'
-import { keyframes } from 'styled-components'
-
-const rotate = keyframes`
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(180deg);
-  }
-`
-
-const CustomCard = styled.div`
-    display: flex;
-    width: 30%;
-    height: 360px;
-    background: #fff;
-    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
-    border-radius: 16px;
-    cursor: pointer;
-`
-const WordBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 40%;
-    align-items: center;
-
-    img{
-        margin-top: 20px;
-        width: 70%;
-        border-radius: 20px;
-    }
-`
-
-const Transcript = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 60%;
-`
-
-const TrueWordBox = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-`
-
-const FalseWordBox = styled.div`
-    display: flex;
-    height: 350px;
-    width: 100%;
-    align-items: center;
-    font-family: 'Vag world bold';
-    font-size: 20px;
-    color: #04064f;
-
-    h3{
-        width: 100%;
-    }
-`
-
-const Meaning = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 0.85em;
-    text-align: justify;
-`
+import {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning} from './styles'
 
 
 function Card(props){
@@ -82,8 +13,7 @@ function Card(props){
 
     return (
     <CustomCard onClick={handleClick}>
-        {!flip && 
-        <TrueWordBox>
+        <TrueWordBox className={flip ? '' : 'open'}>
             <WordBox>
                <h3 className="word">{word}</h3> 
                 <span className="transcript">{transcript}</span>
@@ -104,12 +34,10 @@ function Card(props){
             </Meaning>
             </Transcript>
         </TrueWordBox>
-        }
-        {flip &&
-        <FalseWordBox>
+        <FalseWordBox className={flip ? '' : 'close'}>
                 <h3 className='word'>{word}</h3>
+                <span>Click to learn the translation</span>
         </FalseWordBox>
-        }
     </CustomCard>
     )
 }
