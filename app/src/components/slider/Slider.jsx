@@ -38,14 +38,14 @@ function Slider({words}){
     return(
         <Wrapper>
             <Container>
-                <Button onClick={prevCard}>
-                    <img src={prevButton}></img>
+                <Button className='prev' onClick={prevCard}>
+                    <img className='prev-arrow' src={prevButton}></img>
                 </Button>
                 <CardBox>
                     {wordsItem[slideIndex - 1]}
                 </CardBox>
-                <Button onClick={nextCard}>
-                    <img src={nextButton}></img>
+                <Button className='next' onClick={nextCard}>
+                    <img className='next-arrow' src={nextButton}></img>
                 </Button>
             </Container>
             <div className="counter">Изучено слов: </div>
