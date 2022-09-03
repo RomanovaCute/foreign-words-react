@@ -20,11 +20,21 @@ const Button = styled.button`
     border: none;
     background: none;
     cursor: pointer;
-
+    
     img{
         width: 20%;
+        transition: transform ease 0.15s;
+    }
+
+    &:active .next-arrow{
+        transform: translateX(7px);
+    }
+    
+    &:active .prev-arrow{
+        transform: translateX(-7px);
     }
 `
+
 
 const CardBox = styled.div`
     display: flex;
