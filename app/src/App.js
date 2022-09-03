@@ -16,11 +16,9 @@ function App() {
     <div className="App">
       <Nav/>
       <div className='main'>
-        <Title title='Study'>
-          <ProgressLine/>
-        </Title>
+        <Title title='Study'/>
         <Slider words={words} />
-        <div className='dictionary'>
+        <div className='dictionary-wrapper'>
           <HeaderList></HeaderList>
           {
             words.map(item =>

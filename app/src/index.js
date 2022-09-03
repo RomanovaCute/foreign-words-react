@@ -45,6 +45,10 @@ const GlobalStyles = createGlobalStyle`
     .cards-wrapper{
       margin-bottom: 40px;
     }
+
+    .dictionary-wrapper{
+      margin-top: 35px;
+    }
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
