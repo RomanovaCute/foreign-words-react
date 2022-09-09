@@ -5,8 +5,7 @@ import Card from './components/card/Card'
 import Title from './components/pageTitle/Title'
 import HeaderList from './components/list/header/ListHeader';
 import List from './components/list/main/List';
-import ProgressLine from './components/progressBar/Progress';
-import Slider from './components/slider/Slider';
+import Slider from './components/slider/slider';
 import {words} from './sources/wordsStore'
 
 
