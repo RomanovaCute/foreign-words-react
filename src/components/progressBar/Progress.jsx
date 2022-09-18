@@ -1,9 +1,10 @@
 import ProgressBar from "@ramonak/react-progress-bar";
+import { words } from "../../sources/wordsStore";
 
 const ProgressLine = (props) => {
   return <ProgressBar 
-        completed={props.completed}
-        maxCompleted={props.maxCompleted}
+        completed={Math.round((props.completed * 100 )/(words.length))}
+        maxCompleted={ 100 }
         height='15px'
         labelSize='14px'
         />;
