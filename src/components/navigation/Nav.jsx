@@ -9,7 +9,7 @@ function Nav(){
             <Wrapper>
                 <Link to="/">
                     <LogoBox>
-                        <img src={logo} alt='logo'></img>
+                        <img className='logo-pic' src={logo} alt='logo'></img>
                         <span className='logo-text'>Vocaby</span>
                     </LogoBox>
                 </Link>

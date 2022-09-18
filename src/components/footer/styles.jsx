@@ -4,11 +4,13 @@ const FooterBox = styled.div`
     position: sticky;
     bottom: 0;
     width: 100%;
+    height: 10vh;
     flex-direction: column;
     align-items: center;
-    background: #ff61611f;
+    background: #fee5e5;
     bottom: 0;
     font-family: 'Vag world bold';
+    font-size: 14px;
     color: #04064f;
 `
 const FooterWrapper = styled.div`
