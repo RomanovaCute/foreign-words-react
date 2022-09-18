@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning} from './styles'
+
 
 
 function Card(props){

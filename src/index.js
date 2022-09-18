@@ -7,6 +7,7 @@ import Vag from './fonts/vag_world_bold.woff'
 import Vag2 from './fonts/vag_world_bold.woff2'
 
 
+
 const GlobalStyles = createGlobalStyle`
     @font-face{
       font-family: 'Vag world bold';
@@ -54,8 +55,8 @@ const GlobalStyles = createGlobalStyle`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <App />
+      <GlobalStyles />
+      <App />
   </React.StrictMode>
 );
 

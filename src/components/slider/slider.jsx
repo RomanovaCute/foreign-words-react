@@ -1,6 +1,6 @@
 import nextButton from '../../images/next.png'
 import prevButton from '../../images/back.png'
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Card from '../card/Card';
 import ProgressBar from '../progressBar/Progress'
 import {Wrapper, Container, Button, CardBox, ProgressBox, CounterBox} from './styles'
@@ -29,7 +29,6 @@ function Slider({words}){
     }
     
    const knownWords = (id) => {
-    console.log(id);
         let arr = [...wordLearned];
         arr.push(id);
 

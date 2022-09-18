@@ -1,39 +1,31 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import { useEffect } from "react";
 import './styles/App.css';
 import Nav from './components/navigation/Nav'
 import Footer from './components/footer/Footer'
-import Card from './components/card/Card'
-import Title from './components/pageTitle/Title'
-import HeaderList from './components/list/header/ListHeader';
-import List from './components/list/main/List';
-import Slider from './components/slider/slider';
-import {words} from './sources/wordsStore'
+import Homepage from "./components/pages/homepage/Homepage";
+import Studypage from "./components/pages/studypage/Studypage";
+import Dictionarypage from "./components/pages/dictionarypage/Dictionary";
 
 
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <Nav/>
-      <div className='main'>
-        <Title title='Study'/>
-        <Slider words={words} />
-        <div className='dictionary-wrapper'>
-          <HeaderList></HeaderList>
-          {
-            words.map(item =>
-              <List
-                tag={item.tag}
-                word={item.word}
-                transcript={item.transcription}
-                translate={item.translate}
-                isSelected={item.isSelected} 
-              />
-            )
-          }
-        </div>
-      </div>
+        <Routes>
+          <Route exact path="/" element={<Homepage />} />
+          <Route path="/study" element={<Studypage />}/>
+          <Route path="/dictionary" element={<Dictionarypage/>} />
+        </Routes>
       <Footer/>
     </div>
+    </Router>
   );
 
 }

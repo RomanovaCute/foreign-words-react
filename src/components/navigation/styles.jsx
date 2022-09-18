@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const CustomNav = styled.div`
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     font-family: 'Vag world bold';
