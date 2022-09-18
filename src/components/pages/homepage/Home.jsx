@@ -6,8 +6,10 @@ const HomeWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    height: 100%;
     width: 100%;
     justify-content: center;
+    background: white;
 
     img{
         width: 57%;

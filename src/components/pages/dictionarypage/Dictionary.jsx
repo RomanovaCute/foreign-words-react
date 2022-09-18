@@ -1,15 +1,21 @@
 import HeaderList from '../../list/header/ListHeader'
 import List from '../../list/main/List'
+import Title from '../../pageTitle/Title'
+import { TitleBox } from './styles'
 import {words} from '../../../sources/wordsStore'
 
 function Dictionarypage(){
     return(
         <div className="dictionary-wrapper">
-            <HeaderList/>
+          <TitleBox>
+            <Title title="Dictionary" />
+          </TitleBox>
+          <HeaderList/>
+          <div className='list'>
             {
             words.map(item =>
               <List
-                key={item.id}
+               key={item.id}
                 tag={item.tag}
                 word={item.word}
                 transcript={item.transcription}
@@ -18,6 +24,7 @@ function Dictionarypage(){
               />
             )
           }
+          </div>
         </div>
     )
 }
