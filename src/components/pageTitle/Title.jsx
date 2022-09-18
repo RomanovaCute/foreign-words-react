@@ -4,7 +4,7 @@ function Title(props){
     return(
         <TitleWrapper>
             <TitleBox>
-                <h2 className='title'>{props.title}</h2>
+                <h3 className='title'>{props.title}</h3>
             </TitleBox>
         </TitleWrapper>
     )
