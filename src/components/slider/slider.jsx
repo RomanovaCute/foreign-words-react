@@ -1,6 +1,6 @@
 import nextButton from '../../images/next.png'
 import prevButton from '../../images/back.png'
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Card from '../card/Card';
 import ProgressBar from '../progressBar/Progress'
 import {Wrapper, Container, Button, CardBox, ProgressBox, CounterBox} from './styles'
@@ -10,6 +10,7 @@ function Slider({words}){
     const [slideIndex, setSlideIndex] = useState(1);
     const [wordCount, setwordCount] = useState(0);
     const [wordLearned, setwordLearned] = useState([]);
+
 
     
     const nextCard = () => {
@@ -55,12 +56,12 @@ function Slider({words}){
         )      
     })
 
-    
+
     return(
         <Wrapper>
             <ProgressBox>
                 <CounterBox>
-                    <span>Progress</span>
+                    <span className='progress-subtitle'>Progress</span>
                     <div className='counter'>
                         <span className='current-word'>{wordCount} </span> 
                         <span className='total-words'>/ {words.length}</span>
@@ -80,7 +81,6 @@ function Slider({words}){
                     <img className='next-arrow' src={nextButton}></img>
                 </Button>
             </Container>
-            
         </Wrapper>
     )
 }

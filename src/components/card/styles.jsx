@@ -9,6 +9,13 @@ const CustomCard = styled.div`
     border-radius: 16px;
     cursor: pointer;
     perspective: 1000;
+
+    .word, .translation{
+        font-family: 'Evolventa';
+        font-weight: bold;
+        font-size: 25px;
+        color: #04064f;
+    }
 `
 const WordBox = styled.div`
     display: flex;
@@ -16,6 +23,7 @@ const WordBox = styled.div`
     padding: 20px;
     width: 40%;
     align-items: center;
+    gap: 20px;
 
     img{
         margin-top: 20px;
@@ -26,9 +34,17 @@ const WordBox = styled.div`
 
 const Transcript = styled.div`
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     padding: 20px;
     width: 60%;
+    gap: 20px;
+
+    .transcription{
+        font-family: system-ui;
+        font-weight: 500;
+        color: #04064f;
+    }
 `
 
 const TrueWordBox = styled.div`
@@ -39,7 +55,7 @@ const TrueWordBox = styled.div`
     flex-direction: row;    
     transform: rotateX(180deg);
     backface-visibility: hidden;
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
     background: #fff;
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     border-radius: 16px;
@@ -52,7 +68,6 @@ const TrueWordBox = styled.div`
 const FalseWordBox = styled.div`
     display: flex;
     flex-direction: column;
-    // height: 360px;
     height: 100%;
     width: 100%;
     align-items: center;
@@ -62,7 +77,7 @@ const FalseWordBox = styled.div`
     color: #04064f;
     position: absolute;    
     backface-visibility: hidden;
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
     background: #fff;
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     border-radius: 16px;
@@ -70,7 +85,7 @@ const FalseWordBox = styled.div`
     span{
         visibility: hidden;
         opacity: 0;
-        transition: 1s opacity, 1s visibility;
+        transition: 0.3s opacity, 0.3s visibility;
     }
 
     h3{
@@ -91,8 +106,22 @@ const Meaning = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: 0.85em;
-    text-align: justify;
+    font-size: 16px;
+    text-align: start;
+    line-height: 18px;
+    color: #04064f;
+
+    .divider{
+        width: 100%;
+        height: 15px;
+        opacity: 30%;
+        filter: contrast(0.5);
+    }
+
+    .meaning-title{
+        font-family: system-ui;
+        font-weight: bold;
+    }
 `
 
 export {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning};

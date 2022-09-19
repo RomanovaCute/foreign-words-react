@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning} from './styles'
+import divider from '../../images/line.png'
 
 
 
 function Card(props){
-    const {word, transcript, img, translate, engMeaning, ruMeaning, id, knownWords} = props
+    const {word, transcription, img, translate, engMeaning, ruMeaning, id, knownWords} = props
     const [flip, setFlip] = useState(true);
 
     const handleClick = () => {
@@ -17,19 +18,20 @@ function Card(props){
     <CustomCard onClick={handleClick}>
         <TrueWordBox className={flip ? '' : 'open'}>
             <WordBox>
-               <h3 className="word">{word}</h3> 
-                <span className="transcript">{transcript}</span>
+                <h3 className="word">{word}</h3> 
+                <span className="transcript">{transcription}</span>
                 <img className="photo" src={img}></img>
             </WordBox>
             <Transcript>
             <div className="translate-box">
-                <span className="translation">{translate}</span>
+                <h3 className="translation">{translate}</h3>
             </div>
             <Meaning>
-                <h4 className="meaning-title">Meaning</h4>
+                <span className="meaning-title">Meaning</span>
                 <div className="eng-meaning-box">
                     <span className="eng-meaning">{engMeaning}</span>
                 </div>
+                <img className="divider" src={divider}></img>
                 <div className="ru-meaning-box">
                     <span className="ru-meaning">{ruMeaning}</span>
                 </div>

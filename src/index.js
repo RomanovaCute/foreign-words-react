@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import Vag from './fonts/vag_world_bold.woff'
 import Vag2 from './fonts/vag_world_bold.woff2'
 import GeorgeRounded from './fonts/GeorgeRoundedBold.woff'
+import Evolventa from './fonts/Evolventa.woff'
 
 
 
@@ -19,6 +20,11 @@ const GlobalStyles = createGlobalStyle`
     @font-face{
       font-family: 'GeorgeRounded';
       src: url(${GeorgeRounded}) format('woff')
+    }
+
+    @font-face{
+      font-family: 'Evolventa';
+      src: url(${Evolventa}) format('woff')
     }
     
     body{
@@ -60,6 +66,21 @@ const GlobalStyles = createGlobalStyle`
 
     .dictionary-wrapper{
       overflow: scroll;
+      overflow-x:hidden;
+
+      &::-webkit-scrollbar {
+        width: 7.5px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background-color: #e4e4e4;
+        border-radius: 100px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background-color: #bbbbbb;
+      }
     }
 `
 
