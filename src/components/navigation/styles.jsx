@@ -11,7 +11,7 @@ const CustomNav = styled.div`
     color: #04064f;
     font-weight: bold;
     font-size: 18px;
-    // box-shadow: 5px 1px 50px rgb(167 167 167 / 50%);
+    box-shadow: 5px 1px 50px rgb(174 174 174 / 15%);
 `
 
 const Wrapper = styled.div`
@@ -40,6 +40,8 @@ const Items = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20px;
+    height: 100%;
+    align-items: center;
 
     .study,.dictionary{
         cursor: pointer;
@@ -47,7 +49,16 @@ const Items = styled.div`
     }
 
     a{
-        color: #070a66;
+        color: #fbb5c1;
+    }
+
+    .active{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 17px 10px;
+        background: #04064f;
+        border-radius: 0 0 16px 16px;
     }
 `
 

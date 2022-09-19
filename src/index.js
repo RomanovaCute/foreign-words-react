@@ -33,7 +33,8 @@ const GlobalStyles = createGlobalStyle`
     }
     
     .main{
-      background: #f7f5f5;
+      // background: #f7f5f5;
+      background: #fdfcfc;;
       display: flex;
       height: 80vh;
       flex-direction: column;

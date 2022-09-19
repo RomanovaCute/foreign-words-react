@@ -30,7 +30,7 @@ const InputsList = styled.ul((props) => {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            background: white;
+            background: #f5f5f5;
             border-radius: 16px;
             padding-left: 15px;
             height: 45px;
