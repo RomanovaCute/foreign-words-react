@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 import Vag from './fonts/vag_world_bold.woff'
 import Vag2 from './fonts/vag_world_bold.woff2'
+import GeorgeRounded from './fonts/GeorgeRoundedBold.woff'
 
 
 
@@ -13,6 +14,11 @@ const GlobalStyles = createGlobalStyle`
       font-family: 'Vag world bold';
       src: url(${Vag}) format('woff'),
       url(${Vag2}) format('woff2')
+    }
+
+    @font-face{
+      font-family: 'GeorgeRounded';
+      src: url(${GeorgeRounded}) format('woff')
     }
     
     body{
@@ -23,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
     .main{
       background: #f7f5f5;
       display: flex;
-      height: 80%;
+      height: 80vh;
       flex-direction: column;
       flex-wrap: wrap;
     }
@@ -33,22 +39,27 @@ const GlobalStyles = createGlobalStyle`
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      margin-bottom: 40px;
     }
 
     li{
       list-style: none;
     }
 
+    a{
+      text-decoration: none;
+    }
+
     h1, h2, h3, h4, h5, h6{
       margin: 0;
     }
 
-    .cards-wrapper{
-      margin-bottom: 40px;
+    .dictionary-wrapper, .study-wrapper{
+      margin-top: 25px;
     }
 
     .dictionary-wrapper{
-      margin-top: 35px;
+      overflow: scroll;
     }
 `
 

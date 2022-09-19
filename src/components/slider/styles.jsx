@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 30px;
     justify-content: center;
     display: flex;
     padding: 0 50px;
@@ -19,6 +18,10 @@ const CounterBox = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
+    .progress-subtitle{
+        color: #04064f;
+    }
+
     .total-words{
         color: gray;
     }
@@ -27,8 +30,9 @@ const CounterBox = styled.div`
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
+    margin: 35px auto 30px auto;
     width: 100%;
+    height: 53.7vh;
     align-items: center;
     justify-content: center;
 `
@@ -55,7 +59,7 @@ const Button = styled.button`
 
 const CardBox = styled.div`
     display: flex;
-    width: 30%;
+    width: 40%;
     justify-content: center;
 `
 
