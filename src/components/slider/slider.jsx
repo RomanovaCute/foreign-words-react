@@ -1,17 +1,28 @@
 import nextButton from '../../images/next.png'
 import prevButton from '../../images/back.png'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../card/Card';
 import ProgressBar from '../progressBar/Progress'
 import {Wrapper, Container, Button, CardBox, ProgressBox, CounterBox} from './styles'
 
 
-function Slider({words}){
+function Slider(){
     const [slideIndex, setSlideIndex] = useState(1);
     const [wordCount, setwordCount] = useState(0);
     const [wordLearned, setwordLearned] = useState([]);
+    const [words, setWords] = useState([]);
 
-
+    useEffect(() => {
+        fetch(`https://6329d7e3d2c97d8c527202e1.mockapi.io/words`)
+          .then(res => res.json())
+          .then((json) => {
+            setWords(json)
+          })
+          .catch((error) => {
+            console.log(error);
+            alert('Ошибка. Данные не получены')
+          })
+        }, [])
     
     const nextCard = () => {
         if(slideIndex !== words.length){
@@ -85,4 +96,4 @@ function Slider({words}){
     )
 }
 
-export default Slider;
+export default Slider ;
