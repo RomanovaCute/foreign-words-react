@@ -7,16 +7,17 @@ function Nav(){
     return (
         <CustomNav>
             <Wrapper>
-                <Link to="/">
+                <Link to="/home">
                     <LogoBox>
                         <img className='logo-pic' src={logo} alt='logo'></img>
                         <span className='logo-text'>Vocaby</span>
                     </LogoBox>
                 </Link>
                 <Items>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/home">Home</NavLink>
                     <NavLink to="/study">Study</NavLink>
                     <NavLink to="/dictionary">Dictionary</NavLink>
+                    <NavLink to="/sprint">Sprint</NavLink>
                 </Items>
             </Wrapper>
         </CustomNav>

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const CustomNav = styled.div`
     position: sticky;
@@ -36,10 +36,20 @@ const LogoBox = styled.div`
     }
 `
 
+// const anim = keyframes`
+//     from {
+//         transform: background-position(0px 0px);
+//     };
+
+//     to {
+//         transform: background-position(10px 10px);
+//     };
+// `
+
 const Items = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px;
     height: 100%;
     align-items: center;
 
@@ -49,7 +59,7 @@ const Items = styled.div`
     }
 
     a{
-        color: #fbb5c1;
+        color: #04064f;
     }
 
     .active{
@@ -59,7 +69,9 @@ const Items = styled.div`
         padding: 17px 10px;
         background: #04064f;
         border-radius: 0 0 16px 16px;
+        color: #fbb5c1;
     }
 `
+
 
 export {CustomNav, Wrapper, LogoBox, Items};
