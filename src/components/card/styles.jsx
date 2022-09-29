@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { Keyframes } from 'styled-components'
 
 const CustomCard = styled.div`
     display: flex;
@@ -7,7 +8,6 @@ const CustomCard = styled.div`
     background: #fff;
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     border-radius: 16px;
-    cursor: pointer;
     perspective: 1000;
 
     .word, .translation{
@@ -59,10 +59,20 @@ const TrueWordBox = styled.div`
     background: #fff;
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
     border-radius: 16px;
+    cursor: pointer;
 
     &.open {
         transform: rotateX(360deg);
     }
+`
+
+const pulse = keyframes` 
+        from { 
+            box-shadow: 0 0 0 0px rgb(82 191 82);; 
+        }
+        to { 
+            box-shadow: 0 0 0 10px rgba(18,123,230, 0); 
+        }
 `
 
 const FalseWordBox = styled.div`
@@ -99,6 +109,29 @@ const FalseWordBox = styled.div`
 
     &.close {
         transform: rotateX(180deg);
+    }
+
+    .show-btn{
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        margin: 15px 0 15px 15px; 
+        border-radius: 12px;
+	    height: 46px;
+        width: 30%;
+        color: #fff; 
+        background-color: #51c051;
+        font-size: 14px;
+	    font-weight: 600;
+        color: #fff;
+        font-family: 'Vag world bold';
+        letter-spacing: 1.2px;
+        cursor: pointer;
+
+        &:focus{
+            border: 2px solid green;
+            animation: ${pulse} 1s infinite;
+        }
     }
 `
 

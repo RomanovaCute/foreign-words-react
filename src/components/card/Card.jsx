@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning} from './styles'
 import divider from '../../images/line.png'
+import cardButton from '../button/buttons'
+import { useRef } from 'react';
 
 
 
 function Card(props){
     const {word, transcription, img, translate, engMeaning, ruMeaning, id, knownWords} = props
     const [flip, setFlip] = useState(true);
+    const button = useRef();
 
     const handleClick = () => {
         setFlip(flip => !flip)
         knownWords(id);
     }
 
+    useEffect(() => {
+        button.current.focus();
+    }, [])
 
     return (
-    <CustomCard onClick={handleClick}>
-        <TrueWordBox className={flip ? '' : 'open'}>
+    <CustomCard>
+        <TrueWordBox className={flip ? '' : 'open'} onClick={handleClick}>
             <WordBox>
                 <h3 className="word">{word}</h3> 
                 <span className="transcript">{transcription}</span>
@@ -40,7 +46,7 @@ function Card(props){
         </TrueWordBox>
         <FalseWordBox className={flip ? '' : 'close'}>
                 <h3 className='word'>{word}</h3>
-                <span>Click to learn the translation</span>
+                <button className='show-btn' ref={button} onClick={handleClick}>Show</button>
         </FalseWordBox>
     </CustomCard>
     )
