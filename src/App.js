@@ -19,7 +19,7 @@ function App() {
     <div className="App">
         <Routes>
           <Route path="/" element={<Layout/>}>
-            <Route path="home" element={<Homepage />} />
+            <Route path="foreign-words-react" element={<Homepage />} />
             <Route path="study" element={<Studypage/>}/>
             <Route path="dictionary" element={<Dictionarypage/>} />
             <Route path="sprint" element={<Sprintpage/>} />

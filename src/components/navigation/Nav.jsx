@@ -14,7 +14,7 @@ function Nav(){
                     </LogoBox>
                 </Link>
                 <Items>
-                    <NavLink to="/home">Home</NavLink>
+                    <NavLink to="/foreign-words-react">Home</NavLink>
                     <NavLink to="/study">Study</NavLink>
                     <NavLink to="/dictionary">Dictionary</NavLink>
                     <NavLink to="/sprint">Sprint</NavLink>
