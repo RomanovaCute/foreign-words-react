@@ -7,7 +7,7 @@ function Nav(){
     return (
         <CustomNav>
             <Wrapper>
-                <Link to="/home">
+                <Link to="/foreign-words-react">
                     <LogoBox>
                         <img className='logo-pic' src={logo} alt='logo'></img>
                         <span className='logo-text'>Vocaby</span>
