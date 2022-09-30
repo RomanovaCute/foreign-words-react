@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foreign-words-react/static/css/main.1d766016.css",
-    "main.js": "/foreign-words-react/static/js/main.fd36fdb1.js",
+    "main.js": "/foreign-words-react/static/js/main.c29113fe.js",
     "static/js/787.c1112931.chunk.js": "/foreign-words-react/static/js/787.c1112931.chunk.js",
     "static/media/vag_world_bold.woff": "/foreign-words-react/static/media/vag_world_bold.53e922724d0ad5d65c2f.woff",
     "static/media/sprinting.gif": "/foreign-words-react/static/media/sprinting.75c1a12daa484ba7f539.gif",
@@ -13,11 +13,11 @@
     "static/media/next.png": "/foreign-words-react/static/media/next.11d0bdacbcc4807121fd.png",
     "index.html": "/foreign-words-react/index.html",
     "main.1d766016.css.map": "/foreign-words-react/static/css/main.1d766016.css.map",
-    "main.fd36fdb1.js.map": "/foreign-words-react/static/js/main.fd36fdb1.js.map",
+    "main.c29113fe.js.map": "/foreign-words-react/static/js/main.c29113fe.js.map",
     "787.c1112931.chunk.js.map": "/foreign-words-react/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1d766016.css",
-    "static/js/main.fd36fdb1.js"
+    "static/js/main.c29113fe.js"
   ]
 }
