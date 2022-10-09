@@ -4,13 +4,17 @@ import React, { useState, useEffect } from 'react';
 import Card from '../card/Card';
 import ProgressBar from '../progressBar/Progress'
 import {Wrapper, Container, Button, CardBox, ProgressBox, CounterBox} from './styles'
-
+// import useLocaleStorage from '../hooks/useLocaleStorage'
 
 function Slider(){
     const [slideIndex, setSlideIndex] = useState(1);
     const [wordCount, setwordCount] = useState(0);
     const [wordLearned, setwordLearned] = useState([]);
     const [words, setWords] = useState([]);
+
+    // const currentAmount = () => {
+    //     localStorage.getItem('learnt');
+    // }
 
     useEffect(() => {
         fetch(`https://6329d7e3d2c97d8c527202e1.mockapi.io/words`)
@@ -51,7 +55,8 @@ function Slider(){
             }
         }
         setwordLearned(result);
-        setwordCount(result.length)
+        setwordCount(result.length);
+        localStorage.setItem('learnt', JSON.stringify(wordLearned))
     };
 
     const wordsItem = words.map((item) => {
