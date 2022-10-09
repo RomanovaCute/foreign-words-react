@@ -3,22 +3,25 @@ import {CustomCard, WordBox, Transcript, TrueWordBox, FalseWordBox, Meaning} fro
 import divider from '../../images/line.png'
 import cardButton from '../button/buttons'
 import { useRef } from 'react';
-
+import useLocalStorage from '../hooks/useLocalStorage';
 
 
 function Card(props){
     const {word, transcription, img, translate, engMeaning, ruMeaning, id, knownWords} = props
     const [flip, setFlip] = useState(true);
     const button = useRef();
+    const [amount, setAmount] = useLocalStorage([], 'amount');
 
     const handleClick = () => {
         setFlip(flip => !flip)
         knownWords(id);
+        // setAmount([...amount])
     }
 
     useEffect(() => {
         button.current.focus();
-    }, [])
+    }, [flip])
+
 
     return (
     <CustomCard>
