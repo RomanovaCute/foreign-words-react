@@ -1,29 +1,101 @@
-import React, { useState } from 'react';
-import {InputsList, ButtonsList} from './styles'
+import React, { useState, useEffect } from 'react';
+import {InputsList, ButtonsList, ListItem} from './styles'
+import { useForm } from 'react-hook-form';
 
 const List = props =>{
     const {displayTrue, displayFalse} = props;
     const [isEdit, setEdit] = useState(false);
+    const {register, formState: {errors, isDirty, isValid}, handleSubmit} = useForm({});
+    // const [inputValue, setInput] = useState({});
+
+    
+    const onSubmit = (data) => {
+        console.log(data);
+    }
 
     const handleClick = () =>{
         setEdit(isEdit => !isEdit)
     }
 
+
+    // const handleInputChange = (event) => {
+    //     setInput({
+    //         ...inputValue,
+    //         [event.target.name]: event.target.value
+    //     })
+    //     console.log({[event.target.name]: event.target.value});
+    // }
+
+
     return (
     <div className='list-wrapper'>
             <ol>
                     { isEdit &&
-                         <InputsList style={{background: '#c3d2eb'}}>
-                            <input type="text" className='word' placeholder='Enter the word' defaultValue={props.word}/>
-                            <input type="text" className='translate' placeholder='Enter the translation' defaultValue={props.translate}/>
-                            <input type="text" className='trascription' placeholder='Enter the word' defaultValue={props.transcript}/>
-                            <input type="text" className='category' placeholder='Enter the category' defaultValue={props.tag}/>
-                          
-                            <ButtonsList>
-                                <button className='save-btn' display={displayFalse} onClick={handleClick}>Save</button>
-                                <button className='cancel-btn' display={displayFalse} onClick={handleClick}>Cancel</button>
-                            </ButtonsList>
-                        </InputsList>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <InputsList style={{background: '#c3d2eb'}}>
+                                <ListItem>
+                                        <input 
+                                        {...register ('word', {
+                                            required: true,
+                                            pattern: /^[a-zA-Z]/
+                                        })} 
+                                        type="text" 
+                                        name='word' 
+                                        placeholder='Enter the word'
+                                        className={errors.word ? 'input-error' : ''}
+                                    />
+                                    {errors.word?.type === 'required' ? <span className='error'>Это поле обязательно!</span> : <></>}
+                                    {errors.word?.type === 'pattern' ? <span className='error'>Только буквы</span> : <></>}
+                                </ListItem>
+                                <ListItem>
+                                    <input 
+                                        {...register ('translate', {
+                                            required: true,
+                                            pattern: /^[а-яА-Я]/
+                                        })} 
+                                        type="text"
+                                        name='translate'  
+                                        placeholder='Enter the translation'
+                                        className={errors.translate ? 'input-error' : ''}
+                                    />
+                                    {errors.translate?.type === 'required' ? <span className='error'>Это поле обязательно!</span> : <></>}
+                                    {errors.translate?.type === 'pattern' ? <span className='error'>Только буквы</span> : <></>}
+                                </ListItem>
+                                <ListItem>
+                                    <input 
+                                        {...register('transcript', {
+                                            required: true,
+                                            pattern: /[^\d]/gm
+                                        })}
+                                        type="text" 
+                                        name='transcript'  
+                                        placeholder='Enter the word'
+                                        className={errors.transcript ? 'input-error' : ''}
+                                    />
+                                    {errors.transcript?.type === 'required' ? <span className='error'>Это поле обязательно!</span> : <></>}
+                                    {errors.transcript?.type === 'pattern' ? <span className='error'>Только буквы и символы</span> : <></>}
+                                </ListItem>
+                                <ListItem>
+                                    <input 
+                                        {...register('category', {
+                                            required: true,
+                                            pattern: /^[a-zA-Z]/
+                                        })}
+                                        type="text" 
+                                        name='category'  
+                                        placeholder='Enter the category'
+                                        className={errors.category ? 'input-error' : ''}
+                                    />
+                                    {errors.category?.type === 'required' ? <span className='error'>Это поле обязательно!</span> : <></>}
+                                    {errors.category?.type === 'pattern' ? <span className='error'>Только буквы</span> : <></>}
+                                </ListItem>
+                                
+                                <ButtonsList>
+                                    <button className='save-btn' type='submit' disabled={(!isDirty && !isValid && !errors)} display={displayFalse}>Save</button>
+                                    <button className='cancel-btn' display={displayFalse} onClick={handleClick}>Cancel</button>
+                                </ButtonsList>
+                            </InputsList>
+                        </form>
                     }
                     { !isEdit &&
                         <InputsList>
@@ -42,5 +114,7 @@ const List = props =>{
     </div>
     )
 }
+
+// disabled={!isDirty && !isValid}
 
 export default List;

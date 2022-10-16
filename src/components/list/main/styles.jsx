@@ -14,7 +14,7 @@ const InputsList = styled.ul((props) => {
         border-radius: 16px;
 
         input{
-            margin: 15px 15px 15px 15px;
+            margin: 15px 15px 6px 15px;
             height: 40px;
             padding-left: 15px;
             border: none;
@@ -100,4 +100,20 @@ const ButtonsList = styled.div`
     column-gap: 5px;
 `
 
-export {InputsList, ButtonsList};
+const ListItem = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    .error{
+        font-size: 12px;
+        color: #ff1a00;
+        font-weight: 600;
+        padding: 6px;
+    }
+
+    .input-error{
+        border: solid 2px red;
+    }
+`
+
+export {InputsList, ButtonsList, ListItem};
