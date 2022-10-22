@@ -4,28 +4,27 @@ import { useForm } from 'react-hook-form';
 
 const List = props =>{
     const {displayTrue, displayFalse} = props;
+    const DEFAULT_VALUES = {
+        word: props.word,
+        translate: props.translate,
+        transcript: props.transcript,
+        category: props.tag
+    };
+
     const [isEdit, setEdit] = useState(false);
-    const {register, formState: {errors, isDirty, isValid}, handleSubmit} = useForm({});
-    // const [inputValue, setInput] = useState({});
+    const {register, formState: {errors, isDirty, isValid}, handleSubmit} = useForm({
+        defaultValues: DEFAULT_VALUES
+    });
 
     
     const onSubmit = (data) => {
+        setEdit(false)
         console.log(data);
     }
 
     const handleClick = () =>{
         setEdit(isEdit => !isEdit)
     }
-
-
-    // const handleInputChange = (event) => {
-    //     setInput({
-    //         ...inputValue,
-    //         [event.target.name]: event.target.value
-    //     })
-    //     console.log({[event.target.name]: event.target.value});
-    // }
-
 
     return (
     <div className='list-wrapper'>
