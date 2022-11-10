@@ -174,7 +174,5 @@ const List = observer(({ctrl}, props) => {
     )
 })
 
-// disabled={!isDirty && !isValid}
 
 export default List;
-// onSubmit={handleSubmit(onSubmit)}
