@@ -4,26 +4,21 @@ import List from '../../list/main/List'
 import Title from '../../pageTitle/Title'
 import { TitleBox } from './styles'
 import Preloder from '../../preloader/Preloader'
+import { Storage } from '../../../store/wordsStore';
+import { observer } from 'mobx-react-lite';
 
-function Dictionarypage(){
+const Dictionarypage = observer(() => {
   const [isLoading, setLoading] = useState(false);
-  const [words, setWords] = useState([]);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch(`https://6329d7e3d2c97d8c527202e1.mockapi.io/words`)
-        .then(res => res.json())
-        .then((json) => {
-            setWords(json)
-        })
-        .catch((error) => {
-            console.log(error);
-            alert('Ошибка. Данные не получены')
-        })
-        .finally(() => {
-          setLoading(false);
-        })
-        }, [])
+  const [Ctrl] = useState(new Storage())
+
+  useEffect(() => {
+    Ctrl.getWords();
+  }, []);
+
+  useEffect(() => {
+    <List />
+    }, [Ctrl.list]);
 
 
     return(
@@ -39,23 +34,12 @@ function Dictionarypage(){
             </TitleBox>
             <HeaderList/>
             <div className='list'>
-              {
-              words.map(item =>
-                <List
-                key={item.id}
-                  tag={item.tag}
-                  word={item.word}
-                  transcript={item.transcription}
-                  translate={item.translate}
-                  isSelected={item.isSelected} 
-                />
-              )
-            }
+              <List ctrl = {Ctrl}/>
             </div>
           </div>
         }
       </>
     )
-}
+})
 
 export default Dictionarypage;

@@ -3,35 +3,26 @@ import prevButton from '../../images/back.png'
 import React, { useState, useEffect } from 'react';
 import Card from '../card/Card';
 import ProgressBar from '../progressBar/Progress'
-import {Wrapper, Container, Button, CardBox, ProgressBox, CounterBox} from './styles'
-// import useLocaleStorage from '../hooks/useLocaleStorage'
+import { Wrapper, Container, Button, CardBox, ProgressBox, CounterBox } from './styles'
+import { Storage } from '../../store/wordsStore';
+import { observer } from 'mobx-react-lite';
 
-function Slider(){
+export const Slider = observer(() => {
+    const [Ctrl] = useState(new Storage())
     const [slideIndex, setSlideIndex] = useState(1);
     const [wordCount, setwordCount] = useState(0);
     const [wordLearned, setwordLearned] = useState([]);
     const [words, setWords] = useState([]);
 
-    // const currentAmount = () => {
-    //     localStorage.getItem('learnt');
-    // }
-
     useEffect(() => {
-        fetch(`https://6329d7e3d2c97d8c527202e1.mockapi.io/words`)
-          .then(res => res.json())
-          .then((json) => {
-            setWords(json)
-          })
-          .catch((error) => {
-            console.log(error);
-            alert('Ошибка. Данные не получены')
-          })
-        }, [])
+        Ctrl.getWords()
+    }, [])
+
     
     const nextCard = () => {
-        if(slideIndex !== words.length){
+        if(slideIndex !== Ctrl.length){
             setSlideIndex(slideIndex + 1)
-        } else if (slideIndex === words.length){
+        } else if (slideIndex === Ctrl.length){
             setSlideIndex(1)
         }
     }
@@ -40,7 +31,7 @@ function Slider(){
         if(slideIndex !== 1){
             setSlideIndex(slideIndex - 1)
         } else if (slideIndex === 1) {
-            setSlideIndex(words.length);
+            setSlideIndex(Ctrl.length);
         }
     }
     
@@ -56,18 +47,24 @@ function Slider(){
         }
         setwordLearned(result);
         setwordCount(result.length);
-        localStorage.setItem('learnt', JSON.stringify(wordLearned))
     };
 
-    const wordsItem = words.map((item) => {
-        const {id, ...wordProps} = item;
-
+    const object = Ctrl.list.map((item) => {
+        Card.defaultProps = {
+          english: 'english', 
+          russian: 'russian', 
+          transcription:'transcription', 
+          tags:'tags'
+        }
+    
         return (
             <Card
-                key={id}
-                id={id}
-                knownWords={knownWords}
-                {...wordProps}
+              key={item.id}
+              id={item.id}
+              word={item.english}
+              translate={item.russian}
+              transcription={item.transcription}
+              knownWords={knownWords}
             />
         )      
     })
@@ -80,10 +77,10 @@ function Slider(){
                     <span className='progress-subtitle'>Progress</span>
                     <div className='counter'>
                         <span className='current-word'>{wordCount} </span> 
-                        <span className='total-words'>/ {words.length}</span>
+                        <span className='total-words'>/ {Ctrl.list.length}</span>
                     </div>
                 </CounterBox>
-                <ProgressBar completed={wordCount} maxCompleted={words.length}></ProgressBar>
+                <ProgressBar completed={wordCount} maxCompleted={Ctrl.list.length}></ProgressBar>
             </ProgressBox>
             
             <Container>
@@ -91,7 +88,7 @@ function Slider(){
                     <img className='prev-arrow' src={prevButton}></img>
                 </Button>
                 <CardBox>
-                    {wordsItem[slideIndex - 1]}
+                    {object[slideIndex - 1]}
                 </CardBox>
                 <Button className='next' onClick={nextCard}>
                     <img className='next-arrow' src={nextButton}></img>
@@ -99,6 +96,4 @@ function Slider(){
             </Container>
         </Wrapper>
     )
-}
-
-export default Slider ;
+})
